@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFacConsole", "AutoFacConsole\AutoFacConsole.csproj", "{7474FFE3-6263-4CE7-B090-89C6552CA5A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFacMvc", "AutoFacMvc\AutoFacMvc.csproj", "{2E95666C-7BAF-4D57-A8AD-86BEA1D4922D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAutoFac", "MyAutoFac\MyAutoFac.csproj", "{99A393E0-7CD4-4461-84D0-80351DE4F0D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7474FFE3-6263-4CE7-B090-89C6552CA5A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7474FFE3-6263-4CE7-B090-89C6552CA5A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7474FFE3-6263-4CE7-B090-89C6552CA5A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7474FFE3-6263-4CE7-B090-89C6552CA5A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E95666C-7BAF-4D57-A8AD-86BEA1D4922D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E95666C-7BAF-4D57-A8AD-86BEA1D4922D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E95666C-7BAF-4D57-A8AD-86BEA1D4922D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E95666C-7BAF-4D57-A8AD-86BEA1D4922D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A393E0-7CD4-4461-84D0-80351DE4F0D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A393E0-7CD4-4461-84D0-80351DE4F0D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A393E0-7CD4-4461-84D0-80351DE4F0D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A393E0-7CD4-4461-84D0-80351DE4F0D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
