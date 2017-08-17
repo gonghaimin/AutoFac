@@ -47,7 +47,7 @@ namespace AutoFacConsole
             using (var scope = context.BeginLifetimeScope())
             {
                 var factory = scope.Resolve<ClassTarget.Factory>();
-                var classTarget = factory(new ClassArg2());l
+                var classTarget = factory(new ClassArg2());
                 Console.WriteLine("ClassTarget is initialized? {0}", classTarget.IsInitialized);
             }
         }

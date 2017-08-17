@@ -204,5 +204,24 @@ namespace AutoFacConsole.SomeRegisterWay
                 Console.WriteLine(Phone.ToString());
             }
         }
+
+        /// <summary>
+        /// 在组件component生命周期的不同阶段使用事件。
+        ///Autofac暴露五个事件接口供实例的按如下顺序调用
+        /// </summary>
+        public static void events()
+        {
+            builder.RegisterType<User>()
+            .OnRegistered(e => Console.WriteLine("在注册的时候调用!"))
+            .OnPreparing(e => Console.WriteLine("在准备创建的时候调用!"))
+            .OnActivating(e => Console.WriteLine("在创建之前调用!"))
+            .OnActivated(e => Console.WriteLine("创建之后调用!"))
+            .OnRelease(e => Console.WriteLine("在释放占用的资源之前调用!"));
+            using (var container = builder.Build())
+            {
+                var user = container.Resolve<User>();
+                Console.WriteLine(user.ToString());
+            }
+        }
     }
 }
