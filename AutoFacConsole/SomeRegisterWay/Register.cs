@@ -40,6 +40,7 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void RegisterGeneric()
         {
+           
             builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>)).InstancePerLifetimeScope();
             using (var container = builder.Build())
             {
@@ -53,6 +54,7 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void RegisterInstance()
         {
+            
             ///使用RegisterInstance注册的服务生命周期为SingleInstance，如果指定其他生命周期则报异常。
             builder.RegisterInstance(new User()).As<User>().SingleInstance();
             using (var container = builder.Build())
