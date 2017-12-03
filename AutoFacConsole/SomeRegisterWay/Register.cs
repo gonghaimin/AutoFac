@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac.Configuration.Core;
 using System.Reflection;
+using AutoFacConsole.UseIServiceByName;
 
 namespace AutoFacConsole.SomeRegisterWay
 {
@@ -33,18 +34,18 @@ namespace AutoFacConsole.SomeRegisterWay
                 var user = container.Resolve<User>();
                 Console.WriteLine(user.ToString());
             }
-            
+
         }
         /// <summary>
         /// 泛型注册
         /// </summary>
         public static void RegisterGeneric()
         {
-           
+
             builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>)).InstancePerLifetimeScope();
             using (var container = builder.Build())
             {
-                var list=container.Resolve<IList<Int32>>();
+                var list = container.Resolve<IList<Int32>>();
                 list.Add(5);
                 Console.WriteLine(list[0]);
             }
@@ -54,24 +55,40 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void RegisterInstance()
         {
-            
+
             ///使用RegisterInstance注册的服务生命周期为SingleInstance，如果指定其他生命周期则报异常。
             builder.RegisterInstance(new User()).As<User>().SingleInstance();
             using (var container = builder.Build())
             {
                 var user1 = container.Resolve<User>();
                 var user2 = container.Resolve<User>();
-                Console.WriteLine(object.ReferenceEquals(user1,user2));
+                Console.WriteLine(object.ReferenceEquals(user1, user2));
             }
         }
         //lambda注入
         public static void register()
         {
             builder.RegisterType<Computer>();
-            builder.Register(c => {
+            builder.Register(c =>
+            {
                 var u = new User(c.Resolve<Computer>());
                 return u;
             });
+
+            builder.Register<IFoo>(
+              (c, p) =>
+              {
+                  var accountId = p.Named<string>("accountId");
+                  if (accountId.StartsWith("9"))
+                  {
+                      return new OneFoo();
+                  }
+                  else
+                  {
+                      return new TwoFoo();
+                  }
+              });
+            var card = builder.Build().Resolve<IFoo>(new NamedParameter("accountId", "123"));
             //builder.Register(c =>
             //{
             //    var result = new User(5,"wuyong");
@@ -91,21 +108,26 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void OnActivated()
         {
+
+
             builder.RegisterType<Computer>();
-            builder.RegisterType<User>().OnActivated(c => {
+            builder.RegisterType<User>().OnActivated(c =>
+            {
+
                 c.Instance.computer = c.Context.Resolve<Computer>();
                 Console.WriteLine(c.Instance.ToString());
             });
             using (var container = builder.Build())
             {
                 var user = container.Resolve<User>();
-               
+
             }
         }
         //MethodInjection 方法注入，不能自动注入
         public static void MethodInjection()
         {
-            builder.Register(c => {
+            builder.Register(c =>
+            {
                 var u = new User();
                 u.say(new Computer());
                 return u;
@@ -133,7 +155,11 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void RegisterWithParameters()
         {
-            List<NamedParameter> ListNamedParameter = new List<NamedParameter>() { new NamedParameter("_age", 2), new NamedParameter("_name", "wuyong") };
+            List<NamedParameter> ListNamedParameter = new List<NamedParameter>()
+            {
+                new NamedParameter("_age", 2),
+                new NamedParameter("_name", "wuyong")
+            };
             builder.RegisterType<User>().WithParameters(ListNamedParameter);
             using (var container = builder.Build())
             {
@@ -146,7 +172,11 @@ namespace AutoFacConsole.SomeRegisterWay
         /// </summary>
         public static void RegisterWithProperties()
         {
-            List<NamedPropertyParameter> ListNamedProperty = new List<NamedPropertyParameter>() { new NamedPropertyParameter("age", 2), new NamedPropertyParameter("name", "wuyong") };
+            var ListNamedProperty = new List<NamedPropertyParameter>()
+            {
+                new NamedPropertyParameter("age", 2),
+                new NamedPropertyParameter("name", "wuyong")
+            };
             builder.RegisterType<User>().WithProperties(ListNamedProperty);
             using (var container = builder.Build())
             {

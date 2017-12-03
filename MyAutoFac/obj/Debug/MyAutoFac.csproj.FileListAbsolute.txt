@@ -3,3 +3,8 @@ C:\Users\Administrator\Desktop\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe
 C:\Users\Administrator\Desktop\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.pdb
 C:\Users\Administrator\Desktop\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.exe
 C:\Users\Administrator\Desktop\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.pdb
+H:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe.config
+H:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe
+H:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.pdb
+H:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.exe
+H:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.pdb

@@ -12,5 +12,9 @@ namespace AutoFacConsole.UseIServiceByName
         {
             Console.WriteLine("my is one service:"+word);
         }
+        public void test()
+        {
+            Console.WriteLine("Id:"+new Random().Next(1,999));
+        }
     }
 }

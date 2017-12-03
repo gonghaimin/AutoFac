@@ -20,7 +20,8 @@ namespace AutoFacMvc
             // 创建一个容器
             var builder = new ContainerBuilder();
             // 注册所有的Controller
-            builder.RegisterControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterType<MyService>().InstancePerRequest();
             builder.RegisterType<User>().WithProperty("name", "ghm").As<User>();
             // RegisterType方式：
             // builder.RegisterType<InjectionTestService>().AsSelf().InstancePerDependency();
@@ -66,9 +67,8 @@ namespace AutoFacMvc
             // 把容器装入到微软默认的依赖注入容器中
             var container = builder.Build();
 
-
-
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            var resolver = new AutofacDependencyResolver(container);
+            DependencyResolver.SetResolver(resolver);
 
            
             AreaRegistration.RegisterAllAreas();

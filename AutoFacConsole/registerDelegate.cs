@@ -23,7 +23,7 @@ namespace AutoFacConsole
     }
     public class tst
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             ResolveFuncTest.Test();
             Console.ReadKey();

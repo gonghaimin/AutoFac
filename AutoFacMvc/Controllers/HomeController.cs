@@ -13,29 +13,21 @@ namespace AutoFacMvc.Controllers
 
     public class HomeController : Controller
     {
-
         private readonly InjectionTestService _testService;
         private readonly Func<MPlatform, IMessage> _factory;
-        public HomeController(InjectionTestService testService, Func<MPlatform, IMessage> factory)
+        public HomeController(InjectionTestService testService, 
+            Func<MPlatform, IMessage> factory)
         {
             _testService = testService;
              _factory = factory;
         }
-
         [CustomActionFilter]
         [CustomAuthorizeAttribute]
         public ActionResult Index()
         {
-
             ViewBag.TestValue = _testService.Test();
-            ViewBag.retult = _factory(MPlatform.B平台).Say("去你的吧");
+            ViewBag.retult = _factory(MPlatform.B平台).Say("测试");
             return View();
-        }
-        
-       
-
-        
-
-
+        }     
     }
 }
