@@ -13,15 +13,16 @@ namespace AutoFacMvc.Controllers
     {
         // GET: Acctour
         private readonly MyService _myservice;
-
+        public Repository<User> db { get; set; }
         public AcctourController(MyService myservice)
         {
+            
             _myservice = myservice;
         }
 
         public ActionResult Index()
         {
-            
+            this.HttpContext.Items["user"] = 5;
             var _myservice2 = AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<MyService>();
             ViewBag.Message = _myservice.Test() + "|" + _myservice2.Test();
             var test = AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<MyService>();

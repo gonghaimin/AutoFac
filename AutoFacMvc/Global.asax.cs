@@ -20,7 +20,7 @@ namespace AutoFacMvc
             // 创建一个容器
             var builder = new ContainerBuilder();
             // 注册所有的Controller
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterControllers(typeof(MvcApplication).Assembly).PropertiesAutowired();
             builder.RegisterType<MyService>().InstancePerRequest();
             builder.RegisterType<User>().WithProperty("name", "ghm").As<User>();
             // RegisterType方式：

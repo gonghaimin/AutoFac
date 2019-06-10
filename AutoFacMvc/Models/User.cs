@@ -20,6 +20,14 @@ namespace AutoFacMvc.Models
     public class Repository<T> where T: new()
     {
         public DBContext db { get; set; }
+        public HttpContext httpContext
+        {
+            get
+            {
+               return HttpContext.Current;
+            }
+        }
+        //public HttpContextBase httpcontet { get; set; }
         public Repository()
         {
            
