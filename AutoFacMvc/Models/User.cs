@@ -9,6 +9,20 @@ namespace AutoFacMvc.Models
     {
         public string name { get; set; }
     }
-
-
+    public class DBContext
+    {
+        public DBContext(string name)
+        {
+            _name = name;
+        }
+        public string _name;
+    }
+    public class Repository<T> where T: new()
+    {
+        public DBContext db { get; set; }
+        public Repository()
+        {
+           
+        }
+    }
 }

@@ -8,3 +8,10 @@ H:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe
 H:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.pdb
 H:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.exe
 H:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.pdb
+G:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe.config
+G:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.exe
+G:\GHM\AutoFac\MyAutoFac\bin\Debug\MyAutoFac.pdb
+G:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.csprojAssemblyReference.cache
+G:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.csproj.CoreCompileInputs.cache
+G:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.exe
+G:\GHM\AutoFac\MyAutoFac\obj\Debug\MyAutoFac.pdb

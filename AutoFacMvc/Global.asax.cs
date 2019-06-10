@@ -63,10 +63,13 @@ namespace AutoFacMvc
             builder.RegisterSource(new ViewRegistrationSource());
             //确保对行为筛选器的属性注入可用,添加属性到你的筛选器同时任何在容器中注册的匹配依赖项都会被注入到这些属性中。
             builder.RegisterFilterProvider();
-
+            builder.RegisterType<DBContext>().AsSelf().PropertiesAutowired().WithParameter("name", "111").InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(Repository<>)).AsSelf().PropertiesAutowired().InstancePerLifetimeScope();
+            builder.RegisterType<User>();
             // 把容器装入到微软默认的依赖注入容器中
             var container = builder.Build();
-
+            var aaa = container.Resolve<DBContext>();
+            var aa=container.Resolve<Repository<User>>();
             var resolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(resolver);
 
